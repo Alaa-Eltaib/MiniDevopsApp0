@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: install docker
+      apt:
+        name: [docker.io, docker-compose]
+        state: present
+
+    - name: run project
+      shell: "docker-compose up -d --build"
